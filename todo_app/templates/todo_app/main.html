@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+
+<body>
+    <div>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+
+            {{form.title}}
+            <input type="submit" value="Create Task" name="Create Task">
+        </form>
+
+        {% for task in tasks %}
+        <div>
+            {% if task.complete == True %}
+            <strike>{{task}}</strike>
+            {% else %}
+            <span>{{task}}</span>
+            {% endif %}
+            <br>
+            <a href="{% url 'update_task' task.id %}">Update</a>
+            <a href="{% url 'delete_task' task.id %}">Delete</a>
+        </div>
+
+        {% endfor %}
+    </div>
+</body>
+
+</html>
