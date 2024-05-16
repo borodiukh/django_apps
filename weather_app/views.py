@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import CityForm
 import requests
+import os
+from dotenv import load_dotenv
 
 
-API_KEY = '8326ef5cf34742cf824124837241605'
+load_dotenv()
+API_KEY = os.getenv('API_KEY')
 
 
 def fetch_weather_and_forecast(city, api_key):
