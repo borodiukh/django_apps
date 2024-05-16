@@ -16,7 +16,7 @@ def index(request):
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
-        return redirect('/')
+        return redirect('/todo/')
 
 
 def update_task(request, pk):
@@ -33,7 +33,7 @@ def update_task(request, pk):
 
         if form.is_valid():
             form.save()
-        return redirect('/')
+        return redirect('/todo/')
 
 
 def delete_task(request, pk):
@@ -45,5 +45,5 @@ def delete_task(request, pk):
     if request.method == 'POST':
         task = Task.objects.get(id=pk)
         task.delete()
-        return redirect('/')
+        return redirect('/todo/')
 
