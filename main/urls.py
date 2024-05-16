@@ -6,4 +6,5 @@ urlpatterns = [
     path('', views.main),  # page with links to all apps
     path('admin/', admin.site.urls),
     path('todo/', include('todo_app.urls')),
+    path('weather/', include('weather_app.urls')),
 ]

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Forecast</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 800px;
+            width: 90%;
+            margin: 20px;
+        }
+
+        h1{
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .forecast-item {
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        img {
+            max-width: 50px;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        .weather-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .weather-details {
+            margin-left: 10px;
+        }
+
+        .return-link {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <a href="/weather/" class="return-link">Return to Weather Main Page</a>
+
+        <h1>Weather Forecast</h1>
+        <h2>City: {{weather_data.city}}</h2>
+        <h2>Country: {{weather_data.country}}</h2>
+
+        {% for object in weather_data.forecast %}
+            <div class="forecast-item">
+                <div class="weather-info">
+                    <h3>{{object.date}}</h3>
+                    <img src="https://{{ object.weather_icon }}" alt="{{ object.weather }}">
+                </div>
+                <div class="weather-details">
+                    <p><strong>Min Temp:</strong> {{object.min_temp}} C</p>
+                    <p><strong>Max Temp:</strong> {{object.max_temp}} C</p>
+                    <p><strong>Max Wind:</strong> {{object.max_wind}} k/h</p>
+                    <p><strong>Weather:</strong> {{object.weather}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
