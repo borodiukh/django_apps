@@ -14,16 +14,20 @@ and displays the forecast with city information and weather icons.
 
 Follow these steps to set up and run the project:
 
-1. Clone the repository using the command: `git clone <repository_url>`
-2. Navigate to the repository folder and create a virtual environment.
-3. Activate the virtual environment.
+1. Clone the repository using the command: `git clone https://github.com/borodiukh/django_apps.git`
+2. Navigate to the repository folder and create a virtual environment. `python -m venv venv` command for Windows
+3. Activate the virtual environment. `source ./venv/Scripts/activate` command for Windows
 4. Ensure that Python is installed on your system.
 5. Install the required packages from the `requirements.txt` file. (`pip install -r requirements.txt`)
-6. In the main project folder, run the command: `python manage.py runserver`.
-7. Access the project by visiting: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+-------------------------------------------------------------------------------------------------------
+6.1. To run the weather app, you need to obtain your own API key.
+6.2. You can acquire your API key from the following website: [Weather API](https://www.weatherapi.com/)
+6.3. Inside main folder create a new `.env` file.
+6.4. Inside the `.env` file, add your API key using the format: `API_KEY={your_api_key}`
 
-8. To run the weather app, you need to obtain your own API key.
-9. You can acquire your API key from the following website: [Weather API](https://www.weatherapi.com/)
-10. Create a new `.env` file.
-11. Inside the `.env` file, add your API key using the format: `API_KEY={your_api_key}`
+
+### Project launch
+1. In the main project folder, run the command: `python manage.py runserver`.
+2. Access the project by visiting: [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+
 
